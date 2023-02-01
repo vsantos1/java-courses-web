@@ -1,6 +1,7 @@
 package com.vsanto1.courses.dtos;
 
 
+
 public class CategoryDTO {
 
     private Long id;
