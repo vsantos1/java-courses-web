@@ -4,10 +4,11 @@ import jakarta.persistence.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_categories")
-public class Category  implements Serializable{
+public class Category implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
     @Id
@@ -16,7 +17,11 @@ public class Category  implements Serializable{
 
     private String name;
 
-    public Category(){}
+    @OneToMany(mappedBy = "category")
+    private List<Course> courses;
+
+    public Category() {
+    }
 
     public Long getId() {
         return id;
@@ -33,4 +38,13 @@ public class Category  implements Serializable{
     public void setName(String name) {
         this.name = name;
     }
+
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
+    }
 }
+
