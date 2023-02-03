@@ -1,5 +1,6 @@
 package com.vsanto1.courses.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.vsanto1.courses.enums.Language;
 import jakarta.persistence.*;
 
@@ -17,24 +18,27 @@ public class Course implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-
     private String title;
-
     private String description;
+    @Column(unique = true)
     private String slug;
 
     private Double price;
 
+    @Column(name = "image_url")
     private String imageUrl;
 
+    @Enumerated(EnumType.STRING)
     private Language language;
 
+    @Column(name = "created_at")
     private Date createdAt;
-
+    @Column(name = "updated_at")
     private Date updatedAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
+    @JsonIgnore
     private Category category;
 
     // TODO: implement the others relationships

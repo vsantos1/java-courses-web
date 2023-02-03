@@ -36,28 +36,25 @@ public class CategoryService implements CategoryGateway {
     }
 
     @Override
-    public List<CategoryDTO> findAll() {
-        return categoryRepository.findAll()
-                .stream()
-                .map(category -> mapper.map(category, CategoryDTO.class))
-                .collect(Collectors.toList());
+    public List<Category> findAll() {
+        return categoryRepository.findAll();
     }
 
     @Override
-    public CategoryDTO execute(CategoryDTO categoryDTO) {
+    public Category execute(CategoryDTO categoryDTO) {
         Category category = mapper.map(categoryDTO, Category.class);
         categoryRepository.save(category);
-        return mapper.map(category, CategoryDTO.class);
+        return category;
 
     }
 
     @Override
-    public CategoryDTO update(Long id, CategoryDTO categoryDTO) {
+    public Category update(Long id, CategoryDTO categoryDTO) {
         Category category = this.findById(id);
         mapper.map(categoryDTO, category);
         categoryRepository.save(category);
 
-        return mapper.map(category, CategoryDTO.class);
+        return category;
 
     }
 

@@ -9,11 +9,11 @@ public interface CategoryGateway {
 
     Category findById(Long id);
 
-    List<CategoryDTO> findAll();
+    List<Category> findAll();
 
-    CategoryDTO execute(CategoryDTO categoryDTO);
+    Category execute(CategoryDTO categoryDTO);
 
-    CategoryDTO update(Long id, CategoryDTO categoryDTO);
+    Category update(Long id, CategoryDTO categoryDTO);
 
     void deleteById(Long id);
 }

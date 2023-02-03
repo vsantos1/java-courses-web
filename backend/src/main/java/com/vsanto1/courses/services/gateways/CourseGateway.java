@@ -1,24 +1,21 @@
 package com.vsanto1.courses.services.gateways;
 
-import com.vsanto1.courses.dtos.CategoryDTO;
 import com.vsanto1.courses.dtos.CourseDTO;
-import com.vsanto1.courses.models.Category;
 import com.vsanto1.courses.models.Course;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import java.util.List;
 import java.util.UUID;
 
 public interface CourseGateway {
 
-    Course findById(Long id);
+    Course findById(UUID id);
 
-    Page<CourseDTO> findAll(Pageable pageable);
+    Page<Course> findAll(Pageable pageable);
 
-    CourseDTO execute(CourseDTO courseDTO);
+    Course execute(CourseDTO courseDTO);
 
-    CourseDTO update(UUID id, CourseDTO courseDTO);
+    Course update(UUID id, CourseDTO courseDTO);
 
-    void deleteById(Long id);
+    void deleteById(UUID id);
 }

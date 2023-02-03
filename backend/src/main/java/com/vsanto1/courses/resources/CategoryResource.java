@@ -1,7 +1,9 @@
 package com.vsanto1.courses.resources;
 
 import com.vsanto1.courses.dtos.CategoryDTO;
+import com.vsanto1.courses.models.Category;
 import com.vsanto1.courses.services.CategoryService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,24 +21,24 @@ public class CategoryResource {
     }
 
     @GetMapping(value = "/categories")
-    public ResponseEntity<List<CategoryDTO>> getAll() {
+    public ResponseEntity<List<Category>> getAll() {
         return ResponseEntity.status(HttpStatus.OK).body(categoryService.findAll());
     }
 
 
     @PostMapping(value = "/categories")
-    public ResponseEntity<CategoryDTO> create(@RequestBody  CategoryDTO categoryDTO) {
+    public ResponseEntity<Category> create(@RequestBody @Valid CategoryDTO categoryDTO) {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(categoryService.execute(categoryDTO));
     }
 
     @PutMapping(value = "/categories/{category_id}")
-    public ResponseEntity<CategoryDTO> update(@PathVariable("category_id") Long id, @RequestBody  CategoryDTO categoryDTO) {
+    public ResponseEntity<Category> update(@PathVariable("category_id") Long id, @RequestBody @Valid CategoryDTO categoryDTO) {
         return ResponseEntity.status(HttpStatus.OK).body(categoryService.update(id, categoryDTO));
     }
 
     @DeleteMapping(value = "/categories/{category_id}")
-    public ResponseEntity<CategoryDTO> delete(@PathVariable("category_id") Long id) {
+    public ResponseEntity<Void> delete(@PathVariable("category_id") Long id) {
 
         categoryService.deleteById(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();

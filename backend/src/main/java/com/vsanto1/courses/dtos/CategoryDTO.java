@@ -1,6 +1,10 @@
 package com.vsanto1.courses.dtos;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.vsanto1.courses.models.Course;
+
+import java.util.List;
 
 public class CategoryDTO {
 
@@ -8,10 +12,14 @@ public class CategoryDTO {
 
     private String name;
 
+
     public Long getId() {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -20,4 +28,5 @@ public class CategoryDTO {
     public void setName(String name) {
         this.name = name;
     }
+
 }

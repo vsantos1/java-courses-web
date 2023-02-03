@@ -1,6 +1,7 @@
 package com.vsanto1.courses.configurations;
 
 import com.vsanto1.courses.repositories.CourseRepository;
+import com.vsanto1.courses.services.CategoryService;
 import com.vsanto1.courses.services.CourseService;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
@@ -10,8 +11,8 @@ import org.springframework.context.annotation.Configuration;
 public class CourseConfig {
 
     @Bean
-    public CourseService courseServiceBean(ModelMapper mapper, CourseRepository courseRepository) {
-        return new CourseService(mapper, courseRepository);
+    public CourseService courseServiceBean(ModelMapper mapper, CourseRepository courseRepository, CategoryService categoryService) {
+        return new CourseService(mapper, courseRepository, categoryService);
     }
 
 }

@@ -2,6 +2,8 @@ package com.vsanto1.courses.dtos;
 
 import com.vsanto1.courses.enums.Language;
 import com.vsanto1.courses.models.Category;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.Date;
 import java.util.UUID;
@@ -10,10 +12,11 @@ public class CourseDTO {
 
     private UUID id;
 
+    @NotNull
     private String title;
 
-    private String description;
     private String slug;
+    private String description;
 
     private Double price;
 
@@ -23,9 +26,10 @@ public class CourseDTO {
 
     private Date createdAt;
 
-    private final Date updatedAt = new Date();
+    private Date updatedAt;
 
     private Category category;
+
 
     public UUID getId() {
         return id;
@@ -35,16 +39,26 @@ public class CourseDTO {
         return title;
     }
 
+    public Category getCategory() {
+        return category;
+    }
+
+
     public String getDescription() {
         return description;
+    }
+
+
+    public Double getPrice() {
+        return price;
     }
 
     public String getSlug() {
         return slug;
     }
 
-    public Double getPrice() {
-        return price;
+    public void setSlug(String slug) {
+        this.slug = slug;
     }
 
     public String getImageUrl() {
@@ -63,7 +77,37 @@ public class CourseDTO {
         return updatedAt;
     }
 
-    public Category getCategory() {
-        return category;
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public void setLanguage(Language language) {
+        this.language = language;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }
