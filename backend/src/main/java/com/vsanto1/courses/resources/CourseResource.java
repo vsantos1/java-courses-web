@@ -24,8 +24,8 @@ public class CourseResource {
     }
 
     @GetMapping(value = "/courses")
-    public ResponseEntity<Page<Course>> getAllPaginated(@PageableDefault Pageable pageable) {
-        return ResponseEntity.status(HttpStatus.OK).body(courseService.findAll(pageable));
+    public ResponseEntity<Page<Course>> getAllPaginated(@PageableDefault Pageable pageable, @RequestParam(value = "category",required = false) String categoryName) {
+        return ResponseEntity.status(HttpStatus.OK).body(courseService.findAllWithQuery(pageable, categoryName));
     }
 
     @GetMapping(value = "/courses/{slug}")

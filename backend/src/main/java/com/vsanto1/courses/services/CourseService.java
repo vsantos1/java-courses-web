@@ -12,10 +12,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import java.util.Date;
-import java.util.Locale;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 public class CourseService implements CourseGateway {
 
@@ -29,6 +26,7 @@ public class CourseService implements CourseGateway {
         this.courseRepository = courseRepository;
         this.categoryService = categoryService;
     }
+
 
     public Course findBySlug(String slug) {
         Optional<Course> course = courseRepository.findCourseBySlug(slug);
@@ -58,7 +56,11 @@ public class CourseService implements CourseGateway {
     }
 
     @Override
-    public Page<Course> findAll(Pageable pageable) {
+    public Page<Course> findAllWithQuery(Pageable pageable, String categoryName) {
+        if (categoryName != null) {
+            return courseRepository.findCoursesByCategory_Name(pageable, categoryName);
+
+        }
         return courseRepository.findAll(pageable);
     }
 

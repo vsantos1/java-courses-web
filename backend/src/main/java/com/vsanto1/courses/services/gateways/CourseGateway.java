@@ -11,7 +11,7 @@ public interface CourseGateway {
 
     Course findById(UUID id);
 
-    Page<Course> findAll(Pageable pageable);
+    Page<Course> findAllWithQuery(Pageable pageable, String categoryName);
 
     Course execute(CourseDTO courseDTO);
 
