@@ -24,8 +24,9 @@ public class Video implements Serializable {
 
     private Double length;
 
-
+    private String title;
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
     private Section section;
 
     public Video() {
@@ -61,5 +62,13 @@ public class Video implements Serializable {
 
     public void setSection(Section section) {
         this.section = section;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

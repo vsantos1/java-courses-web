@@ -51,7 +51,7 @@ public class VideoService implements VideoGateway {
 
         mapper.map(videoDTO, video);
 
-        return video;
+        return videoRepository.save(video);
 
 
     }
@@ -63,7 +63,7 @@ public class VideoService implements VideoGateway {
         videoDTO.setSection(video.getSection());
         mapper.map(videoDTO, video);
 
-        return video;
+        return videoRepository.save(video);
 
     }
 

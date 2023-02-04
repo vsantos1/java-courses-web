@@ -1,8 +1,7 @@
 package com.vsanto1.courses.dtos;
 
 import com.vsanto1.courses.models.Section;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.ManyToOne;
+
 
 public class VideoDTO {
 
@@ -10,8 +9,16 @@ public class VideoDTO {
 
     private Double length;
 
-
+    private String title;
     private Section section;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public String getVideoUrl() {
         return videoUrl;
