@@ -1,18 +1,14 @@
 package com.vsanto1.courses.services;
 
-import com.vsanto1.courses.configurations.MapperConfig;
 import com.vsanto1.courses.dtos.CategoryDTO;
+import com.vsanto1.courses.exceptions.ResourceNotFoundException;
 import com.vsanto1.courses.models.Category;
 import com.vsanto1.courses.repositories.CategoryRepository;
 import com.vsanto1.courses.services.gateways.CategoryGateway;
 import org.modelmapper.ModelMapper;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 
 public class CategoryService implements CategoryGateway {

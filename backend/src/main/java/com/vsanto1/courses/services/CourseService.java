@@ -2,7 +2,8 @@ package com.vsanto1.courses.services;
 
 import com.github.slugify.Slugify;
 import com.vsanto1.courses.dtos.CourseDTO;
-import com.vsanto1.courses.models.Category;
+import com.vsanto1.courses.exceptions.ResourceAlreadyExistException;
+import com.vsanto1.courses.exceptions.ResourceNotFoundException;
 import com.vsanto1.courses.models.Course;
 import com.vsanto1.courses.repositories.CourseRepository;
 import com.vsanto1.courses.services.gateways.CourseGateway;
@@ -10,7 +11,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 
 import java.util.Date;
 import java.util.Locale;
@@ -46,7 +46,6 @@ public class CourseService implements CourseGateway {
             return course.get();
         }
 
-        // TODO: Create custom exception for this
 
         throw new ResourceNotFoundException("Course not found");
     }
@@ -77,8 +76,7 @@ public class CourseService implements CourseGateway {
             courseRepository.save(course);
             return course;
         } catch (DataIntegrityViolationException ex) {
-            // TODO: Create custom exception for this
-            throw new RuntimeException("Slug already exists");
+            throw new ResourceAlreadyExistException("Slug already exists");
         }
 
 
@@ -97,9 +95,8 @@ public class CourseService implements CourseGateway {
             courseRepository.save(course);
             return course;
         } catch (DataIntegrityViolationException ex) {
-            // TODO: Create custom exception for this
 
-            throw new RuntimeException("Slug already exists");
+            throw new ResourceAlreadyExistException("Slug already exists");
         }
 
 

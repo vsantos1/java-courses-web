@@ -1,15 +1,14 @@
 package com.vsanto1.courses.integration;
 
 import com.vsanto1.courses.dtos.CategoryDTO;
+import com.vsanto1.courses.exceptions.ResourceNotFoundException;
 import com.vsanto1.courses.models.Category;
-import com.vsanto1.courses.repositories.CategoryRepository;
 import com.vsanto1.courses.services.CategoryService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 
 @SpringBootTest
 public class CategoryServiceTest {
@@ -17,14 +16,12 @@ public class CategoryServiceTest {
     @Autowired
     private CategoryService categoryService;
 
-
     @Test
     @DisplayName("Should return an object because te entity is valid")
     public void whenGivenCategoryShouldReturnAnEntity() {
         CategoryDTO category = new CategoryDTO();
-
         category.setName("Development");
-        CategoryDTO saved = categoryService.execute(category);
+        Category saved = categoryService.execute(category);
         Assertions.assertNotNull(saved.getId());
 
     }
@@ -56,7 +53,7 @@ public class CategoryServiceTest {
         CategoryDTO categoryDTO = new CategoryDTO();
         categoryDTO.setName(givenName);
 
-        CategoryDTO saved = categoryService.update(givenId, categoryDTO);
+        Category saved = categoryService.update(givenId, categoryDTO);
 
         Assertions.assertEquals(saved.getName(), givenName);
 
