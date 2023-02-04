@@ -22,6 +22,11 @@ public class Section implements Serializable {
     @JsonIgnore
     private Course course;
 
+    @OneToMany(mappedBy = "section")
+    @JsonIgnore
+    private List<Video> videos;
+
+
     public Long getId() {
         return id;
     }
@@ -52,5 +57,13 @@ public class Section implements Serializable {
 
     public void setCourse(Course course) {
         this.course = course;
+    }
+
+    public List<Video> getVideos() {
+        return videos;
+    }
+
+    public void setVideos(List<Video> videos) {
+        this.videos = videos;
     }
 }

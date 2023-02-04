@@ -60,10 +60,11 @@ public class SectionService implements SectionGateway {
 
     @Override
     public Section update(Long id, SectionDTO sectionDTO) {
-        courseService.findById(sectionDTO.getCourse().getId());
+
 
         Section section = this.findById(id);
 
+        sectionDTO.setCourse(section.getCourse());
         mapper.map(sectionDTO, section);
 
         return sectionRepository.save(section);
