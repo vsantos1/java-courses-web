@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -40,6 +41,11 @@ public class Course implements Serializable {
     @JoinColumn(name = "category_id")
     @JsonIgnore
     private Category category;
+
+
+    @OneToMany(mappedBy = "course")
+    @JsonIgnore
+    private List<Section> sections;
 
     // TODO: implement the others relationships
 
@@ -124,5 +130,13 @@ public class Course implements Serializable {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public List<Section> getSections() {
+        return sections;
+    }
+
+    public void setSections(List<Section> sections) {
+        this.sections = sections;
     }
 }
