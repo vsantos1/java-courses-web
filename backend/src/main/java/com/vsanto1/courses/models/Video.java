@@ -54,4 +54,12 @@ public class Video implements Serializable {
     public void setLength(Double length) {
         this.length = length;
     }
+
+    public Section getSection() {
+        return section;
+    }
+
+    public void setSection(Section section) {
+        this.section = section;
+    }
 }
