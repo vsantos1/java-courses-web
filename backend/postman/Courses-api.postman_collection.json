@@ -1,0 +1,587 @@
+{
+	"info": {
+		"_postman_id": "58f37153-39ac-4809-9726-ff8dd656dc34",
+		"name": "Courses-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25342070"
+	},
+	"item": [
+		{
+			"name": "categories",
+			"item": [
+				{
+					"name": "Create new",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Data science\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update existing",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Hello, world\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/categories/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete existing",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Hello, world\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/categories/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Hello, world\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "courses",
+			"item": [
+				{
+					"name": "Get all paginated",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/courses?category=Data+science",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"courses"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "Data+science"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by slug",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/courses/java-ddd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"courses",
+								"java-ddd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create new",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Java ddd\",\r\n    \"description\": \"Lorem ipsumwe\",\r\n    \"price\": 22.90,\r\n    \"imageUrl\": \"lorempicsum.com\",\r\n    \"language\":\"pt_BR\",\r\n    \"category\": {\r\n        \"id\": 2\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/courses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update existing",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Java Spring boot DDD\",\r\n    \"description\": \"Lorem ipsum\",\r\n    \"price\": 22.90,\r\n    \"imageUrl\": \"lorempicsum.com\",\r\n    \"language\":\"pt_BR\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/courses/47c733da-db17-45f4-927d-5da40cef7aab",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"courses",
+								"47c733da-db17-45f4-927d-5da40cef7aab"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete existing by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/courses/01e70ef6-d672-4749-b15c-1861b232ed0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"courses",
+								"01e70ef6-d672-4749-b15c-1861b232ed0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "sections",
+			"item": [
+				{
+					"name": "Get all sections by course id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Modulo\",\r\n    \"number\":20\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/sections/courses/7bde86c0-db9a-41d5-b706-020fbf966c54",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"sections",
+								"courses",
+								"7bde86c0-db9a-41d5-b706-020fbf966c54"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Modulo\",\r\n    \"number\":20\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/sections",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"sections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create new",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Modulo\",\r\n    \"number\":1,\r\n    \"course\":{\r\n        \"id\": \"7bde86c0-db9a-41d5-b706-020fbf966c54\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/sections",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"sections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update existing",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Modulo\",\r\n    \"number\":16\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/sections/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"sections",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete existing by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/sections/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"sections",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "videos",
+			"item": [
+				{
+					"name": "Get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/videos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"videos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/videos/7bde86c0-db9a-41d5-b706-020fbf966c54",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"videos",
+								"7bde86c0-db9a-41d5-b706-020fbf966c54"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by section id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/videos/sections/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"videos",
+								"sections",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create new",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Lorem ipsum\",\r\n    \"videoUrl\":\"test.com\",\r\n    \"length\":50.30,\r\n    \"section\":{\r\n        \"id\":1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/videos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"videos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update existing",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Lorem ipsum\",\r\n    \"videoUrl\":\"test.com\",\r\n    \"length\":50.30\r\n   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/videos/3faa6de0-1f3c-4b20-b292-7e80d07d4a0e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"videos",
+								"3faa6de0-1f3c-4b20-b292-7e80d07d4a0e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete existing",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/videos/3faa6de0-1f3c-4b20-b292-7e80d07d4a0e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"videos",
+								"3faa6de0-1f3c-4b20-b292-7e80d07d4a0e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
